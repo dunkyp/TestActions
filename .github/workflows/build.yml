@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: setup python2
+      uses: actions/setup-python@v2
+      with:
+        python-version: '2.x'
+        architecture: x64
+  
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        architecture: x64
+    
+    - name: test
+      run: python --version && python2 --version && python3 --version

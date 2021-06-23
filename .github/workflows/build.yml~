@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  build:
+  steps:
+    - name: setup python2
+      uses: actions/setup-python@v2
+      with:
+        python-version: 2.7
+  
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    
+    - name: test
+      run: python --version && python2 --version && python3 --version
